@@ -1,13 +1,15 @@
 package src;
 
+import java.util.List;
+
 public class Student {
     int id;
     String name;
     String lastName;
     Faculty faculty;
-    Course course;
+    List<Course> course;
 
-    public Student(int id, String name, String lastName, Faculty faculty, Course course) {
+    public Student(int id, String name, String lastName, Faculty faculty, List<Course> course) {
         this.id = id;
         this.name = name;
         this.lastName = lastName;
@@ -47,11 +49,11 @@ public class Student {
         this.faculty = faculty;
     }
 
-    public Course getCourse() {
+    public List<Course> getCourse() {
         return course;
     }
 
-    public void setCourse(Course course) {
+    public void setCourse(List<Course> course) {
         this.course = course;
     }
 }
