@@ -70,7 +70,6 @@ public class Main {
                 .get();
         System.out.println("Max number of students: " + maxObject.getFaculty().getNumberOfStudents());
 
-
         /*GroupingBy*/
         System.out.println("\n---GRUPINGBY---");
         var groupByGender = students.stream()
@@ -89,8 +88,6 @@ public class Main {
                 .average()
                 .getAsDouble();
         System.out.println("Average age: " + averageAge);
-
-
 
     }
 
