@@ -28,7 +28,7 @@ public class Main {
         Faculty faculty3 = new Faculty("WPPT","W11",1800);
 
 
-        Student student1 = new Student(252954, "Aleksandra", "Rozmus", Student.Gender.FEMALE, 22, faculty1, courses1);
+        Student student1 = new Student(252954, "Aleksandra", "Rozmaryn", Student.Gender.FEMALE, 22, faculty1, courses1);
         Student student2 = new Student(252955, "Aleksandra", "Potezny-Grzyb", Student.Gender.FEMALE, 21, faculty2, courses1);
         Student student3 = new Student(252956, "Dominik", "Łydka", Student.Gender.MALE, 23, faculty2, courses2);
         Student student4 = new Student(252957, "Julian", "Kabanos", Student.Gender.MALE, 22, faculty3, courses2);
@@ -74,9 +74,23 @@ public class Main {
         /*GroupingBy*/
         System.out.println("\n---GRUPINGBY---");
         var groupByGender = students.stream()
-                .collect(Collectors.groupingBy(Student::getGender, Collectors.mapping(Student::getName,Collectors.toList())));
-
+                .collect(Collectors.groupingBy(Student::getGender, Collectors.mapping(Student::getLastName,Collectors.toList())));
+        System.out.println("Group by gender:");
         System.out.println(groupByGender);
+
+
+        var groupByAge = students.stream()
+                .collect(Collectors.groupingBy(Student::getAge, Collectors.mapping(Student::getLastName,Collectors.toList())));
+        System.out.println("Group by age:");
+        System.out.println(groupByAge);
+
+        double averageAge = students.stream()
+                .mapToDouble(Student::getAge)
+                .average()
+                .getAsDouble();
+        System.out.println("Average age: " + averageAge);
+
+
 
     }
 
