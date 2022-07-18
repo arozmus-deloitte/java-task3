@@ -1,6 +1,5 @@
 package Model;
 
-import java.lang.reflect.Array;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -29,10 +28,10 @@ public class Main {
         Faculty faculty3 = new Faculty("WPPT","W11",1800);
 
 
-        Student student1 = new Student(252954, "Aleksandra", "Rozmus", Student.Sex.FEMALE, 22, faculty1, courses1);
-        Student student2 = new Student(252955, "Aleksandra", "Potezny-Grzyb", Student.Sex.FEMALE, 21, faculty2, courses1);
-        Student student3 = new Student(252956, "Dominik", "Łydka", Student.Sex.MALE, 23, faculty2, courses2);
-        Student student4 = new Student(252957, "Julian", "Kabanos", Student.Sex.MALE, 22, faculty3, courses2);
+        Student student1 = new Student(252954, "Aleksandra", "Rozmus", Student.Gender.FEMALE, 22, faculty1, courses1);
+        Student student2 = new Student(252955, "Aleksandra", "Potezny-Grzyb", Student.Gender.FEMALE, 21, faculty2, courses1);
+        Student student3 = new Student(252956, "Dominik", "Łydka", Student.Gender.MALE, 23, faculty2, courses2);
+        Student student4 = new Student(252957, "Julian", "Kabanos", Student.Gender.MALE, 22, faculty3, courses2);
         List<Student> students = new ArrayList<>();
         students.add(student1);
         students.add(student2);
@@ -72,10 +71,12 @@ public class Main {
         System.out.println("Max number of students: " + maxObject.getFaculty().getNumberOfStudents());
 
 
-
-
         /*GroupingBy*/
+        System.out.println("\n---GRUPINGBY---");
+        var groupByGender = students.stream()
+                .collect(Collectors.groupingBy(Student::getGender, Collectors.mapping(Student::getName,Collectors.toList())));
 
+        System.out.println(groupByGender);
 
     }
 

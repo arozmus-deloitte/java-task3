@@ -6,21 +6,21 @@ public class Student {
     int id;
     String name;
     String lastName;
-    Sex sex;
+    Gender gender;
     int age;
     Faculty faculty;
     List<Course> courses;
 
-    enum Sex{
+    enum Gender {
         FEMALE,
         MALE
     }
 
-    public Student(int id, String name, String lastName, Sex sex, int age, Faculty faculty, List<Course> courses) {
+    public Student(int id, String name, String lastName, Gender gender, int age, Faculty faculty, List<Course> courses) {
         this.id = id;
         this.name = name;
         this.lastName = lastName;
-        this.sex = sex;
+        this.gender = gender;
         this.age = age;
         this.faculty = faculty;
         this.courses = courses;
@@ -50,12 +50,12 @@ public class Student {
         this.lastName = lastName;
     }
 
-    public Sex getSex() {
-        return sex;
+    public Gender getGender() {
+        return gender;
     }
 
-    public void setSex(Sex sex) {
-        this.sex = sex;
+    public void setGender(Gender gender) {
+        this.gender = gender;
     }
 
     public Faculty getFaculty() {
