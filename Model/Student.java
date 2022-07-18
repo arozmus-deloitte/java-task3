@@ -1,4 +1,4 @@
-package src;
+package Model;
 
 import java.util.List;
 
@@ -6,13 +6,15 @@ public class Student {
     int id;
     String name;
     String lastName;
+    String sex;
     Faculty faculty;
     List<Course> course;
 
-    public Student(int id, String name, String lastName, Faculty faculty, List<Course> course) {
+    public Student(int id, String name, String lastName, String sex, Faculty faculty, List<Course> course) {
         this.id = id;
         this.name = name;
         this.lastName = lastName;
+        this.sex = sex;
         this.faculty = faculty;
         this.course = course;
     }
@@ -41,6 +43,14 @@ public class Student {
         this.lastName = lastName;
     }
 
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+
     public Faculty getFaculty() {
         return faculty;
     }
@@ -56,4 +66,5 @@ public class Student {
     public void setCourse(List<Course> course) {
         this.course = course;
     }
+
 }
