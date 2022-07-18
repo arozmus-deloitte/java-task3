@@ -3,6 +3,7 @@ package Model;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 public class Main {
@@ -50,12 +51,17 @@ public class Main {
         names.forEach(name -> System.out.println(name.getName() + " " + name.getLastName()));
 
         System.out.println("\nID larger than 252954 :");
-        List<Student> idList = students.stream()
+        students.stream()
                 .filter(c -> c.getId() > 252954)
-                .collect(Collectors.toList());
-        idList.forEach(id -> System.out.println(id.getName() + " " + id.getId()));
+                .collect(Collectors.toList())
+        .forEach(id -> System.out.println(id.getName() + " " + id.getId()));
 
-
+        /*Map*/
+        System.out.println("/n---MAP EXAMPLE:---");
+        students.stream()
+                .map(faculty -> faculty.getFaculty().getName())
+                .collect(Collectors.toList())
+                .forEach(System.out::println);
 
 
     }
