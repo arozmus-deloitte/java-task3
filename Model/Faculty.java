@@ -1,9 +1,10 @@
 package Model;
 
 public class Faculty {
+    //TODO fields should be private -> OOP encapsulation rule
     String name;
     String number;
-
+    // TODO unnecessary empty line
    int numberOfStudents;
 
     public Faculty(String name, String number, int numberOfStudents) {

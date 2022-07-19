@@ -29,7 +29,7 @@ public class Main {
 
 
         Student student1 = new Student(252954, "Aleksandra", "Rozmaryn", Student.Gender.FEMALE, 22, faculty1, courses1);
-        Student student2 = new Student(252955, "Aleksandra", "Potezny-Grzyb", Student.Gender.FEMALE, 21, faculty2, courses1);
+        Student student2 = new Student(252955, "Aleksandra", "Potezny-Grzyb", Student.Gender.FEMALE, 21, faculty2, courses1); //TODO xD potezny-grzyb
         Student student3 = new Student(252956, "Dominik", "Łydka", Student.Gender.MALE, 23, faculty2, courses2);
         Student student4 = new Student(252957, "Julian", "Kabanos", Student.Gender.MALE, 22, faculty3, courses2);
         List<Student> students = new ArrayList<>();
@@ -56,7 +56,13 @@ public class Main {
         System.out.println("\n---MAP EXAMPLE:---");
         students.stream()
                 .map(student -> student.getFaculty().getName())
-                .collect(Collectors.toList())
+                .collect(Collectors.toList())//TODO if there are some duplications of the courses and you just want the names, maybe a set would be better here
+                .forEach(System.out::println);
+
+        System.out.println("\n---MAP EXAMPLE:--- --with Set (now there are no duplications");
+        students.stream()
+                .map(student -> student.getFaculty().getName())
+                .collect(Collectors.toSet())//TODO if there are some duplications of the courses and you just want the names, maybe a set would be better here
                 .forEach(System.out::println);
 
         /*Min/max*/
@@ -72,9 +78,10 @@ public class Main {
 
 
         /*GroupingBy*/
-        System.out.println("\n---GRUPINGBY---");
+        System.out.println("\n---GROUPINGBY---");
+        //TODO just a question -> you wrote the var here on purpose?
         var groupByGender = students.stream()
-                .collect(Collectors.groupingBy(Student::getGender, Collectors.mapping(Student::getLastName,Collectors.toList())));
+                .collect(Collectors.groupingBy(Student::getGender, Collectors.mapping(Student::getLastName,Collectors.toList()))); //TODO you could split that into a few lines -> would be more clear
         System.out.println("Group by gender:");
         System.out.println(groupByGender);
 
@@ -90,7 +97,15 @@ public class Main {
                 .getAsDouble();
         System.out.println("Average age: " + averageAge);
 
+        //TODO good ;)
+        // About this grouping by example -> you could also write sth that uses the grouping by along with the averaging function, e.g.
+        //an average age grouped by gender
+        Map<Student.Gender, Double> avgAgeByGender = students.stream()
+                .collect(Collectors.groupingBy(
+                        Student::getGender,
+                        Collectors.averagingInt(Student::getAge)));
 
+        System.out.println(avgAgeByGender);
 
     }
 

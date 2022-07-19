@@ -3,6 +3,7 @@ package Model;
 import java.util.List;
 
 public class Student {
+    //TODO fields should be private
     int id;
     String name;
     String lastName;
@@ -15,6 +16,18 @@ public class Student {
         FEMALE,
         MALE
     }
+
+    //TODO it is not a failure in scope of this task - but for future -> we should avoid objects that have so many parameters in a constructor
+    //Then maybe it is better to introduce some builder class/make more use of setters methods
+    //TODO or at least change the formatting to:
+//    public Student(
+//            int id,
+//            String name,
+//            String lastName,
+//            Gender gender,
+//            int age,
+//            Faculty faculty, List<Course> courses) {
+//    }
 
     public Student(int id, String name, String lastName, Gender gender, int age, Faculty faculty, List<Course> courses) {
         this.id = id;

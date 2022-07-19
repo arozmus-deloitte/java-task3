@@ -1,7 +1,7 @@
 package Model;
 
 public class Course {
-    String name;
+    String name; //TODO fields should be private
     String lecturer;
     int ects;
 
